@@ -9,6 +9,10 @@
     "start": "npm run dev",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bedlate/vue-data-loading.git"
+  },
   "dependencies": {
     "vue": "^2.0.0"
   },
