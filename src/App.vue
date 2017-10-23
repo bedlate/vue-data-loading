@@ -1,59 +1,40 @@
 <template>
     <div>
-        <h1>Lorem ipsum dolor.</h1>
-
-        <touch-refresh @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown" :loading="loading" :listens="['pull-down', 'infinite-scroll']">
+        <vue-data-loading :loading="loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
             <ul>
-                <li v-for="(item, index) in list" :key="index">{{item}}</li>
+                <li v-for="(item, index) in list" :key="index">Item: {{item}}</li>
             </ul>
-        </touch-refresh>
+            <div slot="infinite-scroll-loading" class="text-center">loading...</div>
+        </vue-data-loading>
     </div>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld'
-    import TouchRefresh from './components/touch-refresh.vue'
+    import vueDataLoading from './components/vue-data-loading.vue'
 
     export default {
         name: 'app',
         components: {
-            TouchRefresh
+            vueDataLoading
         },
         data() {
             return {
                 list: [],
                 loading: false,
-                data: [
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                    'Lorem ipsum dolor sit amet.',
-                ],
             }
         },
         methods: {
             fetchData() {
                 this.loading = true
                 setTimeout(() => {
-                    this.list = this.list.concat(this.data)
+                    const temp = [];
+                    for (let i = this.list.length + 1; i <= this.list.length + 50; i++) {
+                        temp.push(i);
+                    }
+                    this.list = this.list.concat(temp);
+
                     this.loading = false
-                }, 400)
+                }, 1000)
             },
 
             pullUp() {
@@ -79,5 +60,8 @@
 <style>
     ul {
         margin: 0;
+    }
+    .text-center {
+        text-align: center;
     }
 </style>

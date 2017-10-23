@@ -1,55 +1,55 @@
 <template>
     <div>
-        <div v-show="'pull-down' === pull.type && !pull.available" :style="{height: pullHeight + 'px'}">
-            <slot name="pull-down-pre">
+        <div v-show="PULL_DOWN === pull.type && !pull.available" :style="{height: pullHeight + 'px'}">
+            <slot :name="PULL_DOWN + '-before'">
                 <div class="d-table">
-                    <div class="d-cell pull-down-pre">下拉刷新数据</div>
+                    <div class="d-cell" :class="PULL_DOWN + '-before'">下拉刷新数据</div>
                 </div>
             </slot>
         </div>
-        <div v-show="'pull-down' === pull.type && pull.available" :style="{height: pullHeight + 'px'}">
-            <slot name="pull-down-ing">
+        <div v-show="PULL_DOWN === pull.type && pull.available" :style="{height: pullHeight + 'px'}">
+            <slot :name="PULL_DOWN">
                 <div class="d-table">
-                    <div class="d-cell pull-down-ing">松开刷新数据</div>
+                    <div class="d-cell" :class="PULL_DOWN">松开刷新数据</div>
                 </div>
             </slot>
         </div>
-        <div v-show="loading && 'pull-down' === loadingType" :style="{height: distance + 'px'}">
-            <slot name="pull-down-loading">
+        <div v-show="loading && PULL_DOWN === loadingType" :style="{height: distance + 'px'}">
+            <slot :name="PULL_DOWN + '-loading'">
                 <div class="d-table">
-                    <div class="d-cell pull-down-loading">加载中...</div>
+                    <div class="d-cell" :class="PULL_DOWN + '-loading'">加载中...</div>
                 </div>
             </slot>
         </div>
 
         <slot></slot>
 
-        <div v-show="'pull-up' === pull.type && !pull.available" :style="{height: pullHeight + 'px'}">
-            <slot name="pull-up-pre">
+        <div v-show="PULL_UP === pull.type && !pull.available" :style="{height: pullHeight + 'px'}">
+            <slot :name="PULL_UP + '-before'">
                 <div class="d-table">
-                    <div class="d-cell pull-up-pre">上拉加载数据</div>
+                    <div class="d-cell" :class="PULL_UP + '-before'">上拉加载数据</div>
                 </div>
             </slot>
         </div>
-        <div v-show="'pull-up' === pull.type && pull.available" :style="{height: pullHeight + 'px'}">
-            <slot name="pull-up-ing">
+        <div v-show="PULL_UP === pull.type && pull.available" :style="{height: pullHeight + 'px'}">
+            <slot :name="PULL_UP">
                 <div class="d-table">
-                    <div class="d-cell pull-up-ing">松开加载数据</div>
+                    <div class="d-cell" :class="PULL_UP">松开加载数据</div>
                 </div>
             </slot>
         </div>
-        <div v-show="loading && 'pull-up' === loadingType" :style="{height: distance + 'px'}">
-            <slot name="pull-up-loading">
+        <div v-show="loading && PULL_UP === loadingType" :style="{height: distance + 'px'}">
+            <slot :name="PULL_UP + '-loading'">
                 <div class="d-table">
-                    <div class="d-cell pull-up-loading">加载中...</div>
+                    <div class="d-cell" :class="PULL_UP + '-loading'">加载中...</div>
                 </div>
             </slot>
         </div>
 
-        <div v-show="loading && 'infinite-scroll' === loadingType" :style="{height: distance + 'px'}">
-            <slot name="infinite-scroll">
+        <div v-show="loading && INFINITE_SCROLL === loadingType" :style="{height: distance + 'px'}">
+            <slot :name="INFINITE_SCROLL + '-loading'">
                 <div class="d-table">
-                    <div class="d-cell infinite-scroll">加载中...</div>
+                    <div class="d-cell" :class="INFINITE_SCROLL + '-loading'">加载中...</div>
                 </div>
             </slot>
         </div>
@@ -60,26 +60,26 @@
 <script>
     export default {
         props: {
-            container: {
-                type: String,
-            },
             loading: {
                 type: Boolean,
                 default: false
-            },
-            offset: {
-                type: Number,
-                default: 0
             },
             distance: {
                 type: Number,
                 default: 60
             },
+            offset: {
+                type: Number,
+                default: 0
+            },
             listens: {
                 type: Array,
                 default() {
-                    return ['pull-down', 'pull-up', 'infinite-scroll']
+                    return ['infinite-scroll', 'pull-down', 'pull-up']
                 }
+            },
+            container: {
+                type: String,
             },
         },
         data() {
@@ -213,7 +213,7 @@
 </script>
 
 <style>
-    .pull-down-pre, .pull-down-ing, .pull-down-loading, .pull-up-pre, .pull-up-ing, .pull-up-loading, .infinite-scroll {
+    .pull-down-before, .pull-down, .pull-down-loading, .pull-up-before, .pull-up, .pull-up-loading, .infinite-scroll-loading {
         font-size: 0.8em;
         padding: 0.4em;
         color: #868e96;

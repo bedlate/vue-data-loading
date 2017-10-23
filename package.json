@@ -1,8 +1,8 @@
 {
-  "name": "vue-touch-refresh",
+  "name": "vue-data-loading",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "null <bedlate@gmail.com>",
+  "description": "Another component: infinite scroll and pull down to fetch data.",
+  "author": "bedlate <bedlate@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "vue": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
