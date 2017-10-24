@@ -2,6 +2,8 @@
 
 > Another component: infinite scroll and pull down to fetch data.
 
+Here is a demo of [HackNews](http://hacknews.xyz)
+
 
 ## Install
 
