@@ -1,13 +1,16 @@
 {
   "name": "vue-data-loading",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Another component: infinite scroll and pull down to fetch data.",
   "main": "src/components/vue-data-loading.vue",
   "author": "bedlate <bedlate@gmail.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "dist:dev": "./node_modules/.bin/webpack --config build/webpack.dist.dev.js",
+    "dist:prod": "./node_modules/.bin/webpack --config build/webpack.dist.prod.js",
+    "dist": "npm run dist:dev && npm run dist:prod"
   },
   "repository": {
     "type": "git",

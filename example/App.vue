@@ -10,12 +10,12 @@
 </template>
 
 <script>
-    import vueDataLoading from './components/vue-data-loading.vue'
+    import VueDataLoading from '../src'
 
     export default {
         name: 'app',
         components: {
-            vueDataLoading
+            VueDataLoading
         },
         data() {
             return {
