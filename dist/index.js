@@ -749,10 +749,10 @@ module.exports = function normalizeComponent (
             this.loadingType = type;
         },
         handleScroll: function handleScroll() {
+            this.updateView();
             if (this.loading || this.completed) {
                 return;
             }
-            this.updateView();
             if (this.margin.bottom >= 0) {
                 this.$emit(this.INFINITE_SCROLL);
                 this.setLoadingType(this.INFINITE_SCROLL);
