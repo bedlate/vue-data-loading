@@ -57,7 +57,7 @@
         <div v-show="!loading && completed" :style="{height: distance + 'px'}">
             <slot name="completed">
                 <div class="d-table">
-                    <div class="d-cell" :class="completed">加载完毕</div>
+                    <div class="d-cell completed">加载完毕</div>
                 </div>
             </slot>
         </div>
@@ -225,7 +225,7 @@
 </script>
 
 <style>
-    .pull-down-before, .pull-down, .pull-down-loading, .pull-up-before, .pull-up, .pull-up-loading, .infinite-scroll-loading {
+    .pull-down-before, .pull-down, .pull-down-loading, .pull-up-before, .pull-up, .pull-up-loading, .infinite-scroll-loading, .completed {
         font-size: 0.8em;
         padding: 0.4em;
         color: #868e96;

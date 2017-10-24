@@ -1,7 +1,8 @@
 {
   "name": "vue-data-loading",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Another component: infinite scroll and pull down to fetch data.",
+  "homepage": "http://hacknews.xyz",
   "main": "dist/index.js",
   "author": "bedlate <bedlate@gmail.com>",
   "scripts": {
