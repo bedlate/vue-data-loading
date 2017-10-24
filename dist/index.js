@@ -659,10 +659,22 @@ module.exports = function normalizeComponent (
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     props: {
         loading: {
+            type: Boolean,
+            default: false
+        },
+        completed: {
             type: Boolean,
             default: false
         },
@@ -737,7 +749,7 @@ module.exports = function normalizeComponent (
             this.loadingType = type;
         },
         handleScroll: function handleScroll() {
-            if (this.loading) {
+            if (this.loading || this.completed) {
                 return;
             }
             this.updateView();
@@ -830,7 +842,7 @@ module.exports = function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_DOWN === _vm.pull.type && !_vm.pull.available),expression:"PULL_DOWN === pull.type && !pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_DOWN + '-before',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN + '-before'},[_vm._v("下拉刷新数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_DOWN === _vm.pull.type && _vm.pull.available),expression:"PULL_DOWN === pull.type && pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_DOWN,[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN},[_vm._v("松开刷新数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.PULL_DOWN === _vm.loadingType),expression:"loading && PULL_DOWN === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.PULL_DOWN + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN + '-loading'},[_vm._v("加载中...")])])])],2),_vm._v(" "),_vm._t("default"),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_UP === _vm.pull.type && !_vm.pull.available),expression:"PULL_UP === pull.type && !pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_UP + '-before',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP + '-before'},[_vm._v("上拉加载数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_UP === _vm.pull.type && _vm.pull.available),expression:"PULL_UP === pull.type && pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_UP,[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP},[_vm._v("松开加载数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.PULL_UP === _vm.loadingType),expression:"loading && PULL_UP === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.PULL_UP + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP + '-loading'},[_vm._v("加载中...")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.INFINITE_SCROLL === _vm.loadingType),expression:"loading && INFINITE_SCROLL === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.INFINITE_SCROLL + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.INFINITE_SCROLL + '-loading'},[_vm._v("加载中...")])])])],2)],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_DOWN === _vm.pull.type && !_vm.pull.available),expression:"PULL_DOWN === pull.type && !pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_DOWN + '-before',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN + '-before'},[_vm._v("下拉刷新数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_DOWN === _vm.pull.type && _vm.pull.available),expression:"PULL_DOWN === pull.type && pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_DOWN,[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN},[_vm._v("松开刷新数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.PULL_DOWN === _vm.loadingType),expression:"loading && PULL_DOWN === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.PULL_DOWN + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_DOWN + '-loading'},[_vm._v("加载中...")])])])],2),_vm._v(" "),_vm._t("default"),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_UP === _vm.pull.type && !_vm.pull.available),expression:"PULL_UP === pull.type && !pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_UP + '-before',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP + '-before'},[_vm._v("上拉加载数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.PULL_UP === _vm.pull.type && _vm.pull.available),expression:"PULL_UP === pull.type && pull.available"}],style:({height: _vm.pullHeight + 'px'})},[_vm._t(_vm.PULL_UP,[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP},[_vm._v("松开加载数据")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.PULL_UP === _vm.loadingType),expression:"loading && PULL_UP === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.PULL_UP + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.PULL_UP + '-loading'},[_vm._v("加载中...")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading && _vm.INFINITE_SCROLL === _vm.loadingType),expression:"loading && INFINITE_SCROLL === loadingType"}],style:({height: _vm.distance + 'px'})},[_vm._t(_vm.INFINITE_SCROLL + '-loading',[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.INFINITE_SCROLL + '-loading'},[_vm._v("加载中...")])])])],2),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.loading && _vm.completed),expression:"!loading && completed"}],style:({height: _vm.distance + 'px'})},[_vm._t("completed",[_c('div',{staticClass:"d-table"},[_c('div',{staticClass:"d-cell",class:_vm.completed},[_vm._v("加载完毕")])])])],2)],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

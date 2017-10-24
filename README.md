@@ -11,7 +11,7 @@
 
 Import first:
 
-    import vueDataLoading from 'vue-data-loading'
+    import VueDataLoading from 'vue-data-loading'
 
 The only you need to do is wrapping your data with `vue-data-loading` tag.
 
@@ -85,6 +85,14 @@ Type: boolean
 Default: false
 
 The component will not trigger event while `loading` is `true`, so you can use it to fetch data.
+
+#### completed
+
+Type: boolean
+
+Default: false
+
+The component will not trigger `infinite-scroll` if `true`.
 
 #### distance
 

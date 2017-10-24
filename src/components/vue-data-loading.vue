@@ -54,6 +54,14 @@
             </slot>
         </div>
 
+        <div v-show="!loading && completed" :style="{height: distance + 'px'}">
+            <slot name="completed">
+                <div class="d-table">
+                    <div class="d-cell" :class="completed">加载完毕</div>
+                </div>
+            </slot>
+        </div>
+
     </div>
 </template>
 
@@ -61,6 +69,10 @@
     export default {
         props: {
             loading: {
+                type: Boolean,
+                default: false
+            },
+            completed: {
                 type: Boolean,
                 default: false
             },
@@ -129,7 +141,7 @@
                 this.loadingType = type
             },
             handleScroll() {
-                if (this.loading) {
+                if (this.loading || this.completed) {
                     return
                 }
                 this.updateView()

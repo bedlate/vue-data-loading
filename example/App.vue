@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vue-data-loading :loading="loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
+        <vue-data-loading :loading="loading" :completed="completed" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
             <ul>
                 <li v-for="(item, index) in list" :key="index">Item: {{item}}</li>
             </ul>
@@ -21,17 +21,26 @@
             return {
                 list: [],
                 loading: false,
+                completed: false,
+                page: 1,
             }
         },
         methods: {
             fetchData() {
                 this.loading = true
                 setTimeout(() => {
-                    const temp = [];
-                    for (let i = this.list.length + 1; i <= this.list.length + 50; i++) {
-                        temp.push(i);
+                    if (this.page > 3) {
+                        this.completed = true
+                        this.loading = false
+                        return
                     }
-                    this.list = this.list.concat(temp);
+
+                    const temp = []
+                    for (let i = this.list.length + 1; i <= this.list.length + 50; i++) {
+                        temp.push(i)
+                    }
+                    this.list = this.list.concat(temp)
+                    this.page++
 
                     this.loading = false
                 }, 1000)
