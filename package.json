@@ -1,8 +1,8 @@
 {
   "name": "vue-data-loading",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Another component: infinite scroll and pull down to fetch data.",
-  "main": "src/components/vue-data-loading.vue",
+  "main": "dist/index.js",
   "author": "bedlate <bedlate@gmail.com>",
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -15,7 +15,7 @@ module.exports = merge(baseWebpackConfig, {
         index: './src/index.js'
     },
     output: {
-        path: path.resolve(__dirname, '../dist/npm'),
+        path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
         filename: 'index.js',
         library: 'VueDataLoading',
