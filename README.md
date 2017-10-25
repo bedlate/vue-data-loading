@@ -1,6 +1,6 @@
 # vue-data-loading
 
-> Another component: infinite scroll and pull down to fetch data.
+> Another component for infinite scroll and pull down/up to load data.
 
 Here is a demo of [HackNews](http://hacknews.xyz)
 
@@ -189,13 +189,16 @@ Display when container has already `pull-up` and data is `loading`
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve example with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
+# build for example production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
+# build for example production and view the bundle analyzer report
 npm run build --report
+
+# build vue-data-loading component
+npm run dist
 ```
 
