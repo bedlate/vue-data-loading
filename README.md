@@ -4,6 +4,10 @@
 
 Here is a demo of [HackNews](http://hacknews.xyz)
 
+## Screenshot
+
+![vue-data-loading](https://github.com/bedlate/vue-data-loading/raw/master/screenshot.gif)
+
 
 ## Install
 
