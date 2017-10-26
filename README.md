@@ -37,48 +37,16 @@ And sometimes, you may want to change the default `slot`:
 
 Here is a example for `infinite-scroll` slot:
 
-**default**:
+*default*:
 
-    <div class="d-table">
-        <div class="d-cell infinite-scroll-loading">加载中...</div>
-    </div>
+    <slot :name="infinite-scroll-loading">加载中...</slot>
 
-**edit**:
+*edit*:
 
     <div slot="infinite-scroll-loading" class="some-style-you-like">loading...</div>
 
 
-Here is a example for handing event:
-
-    data() {
-        return {
-            list: [],
-            loading: false,
-        }
-    },
-    methods: {
-        fetchData() {
-            this.loading = true
-            setTimeout(() => {
-                const temp = [];
-                for (let i = this.list.length + 1; i <= this.list.length + 50; i++) {
-                    temp.push(i);
-                }
-                this.list = this.list.concat(temp);
-
-                this.loading = false
-            }, 1000)
-        },
-        pullDown() {
-            console.log('pull-down...')
-            this.list = []
-            this.fetchData()
-        },
-        infiniteScroll() {
-            console.log('infinite-scroll...')
-            this.fetchData()
-        },
-    },
+Here is a [full example](https://github.com/bedlate/vue-data-loading/blob/master/example/App.vue)
 
 ## API
 
@@ -162,7 +130,7 @@ Display when container has already scrolled to bottom of window and data is `loa
 
 Display when distance of `pull-down` is less then `distance` prop
 
-#### pull-down
+#### pull-down-ready
 
 Display when distance of `pull-down` is not less then `distance` prop
 
@@ -174,7 +142,7 @@ Display when container has already `pull-down` and data is `loading`
 
 Display when distance of `pull-up` is less then `distance` prop
 
-#### pull-up
+#### pull-up-ready
 
 Display when distance of `pull-up` is not less then `distance` prop
 

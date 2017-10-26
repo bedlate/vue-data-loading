@@ -1,10 +1,11 @@
 <template>
     <div>
-        <vue-data-loading :loading="loading" :completed="completed" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
+        <vue-data-loading :loading="loading" :completed="completed" :listens="['infinite-scroll', 'pull-down', 'pull-up']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
+            <div slot="pull-down-ready">ready to refresh</div>
             <ul>
-                <li v-for="(item, index) in list" :key="index">Item: {{item}}</li>
+                <li v-for="(item, index) in list" :key="index">Lorem ipsum dolor sit item: {{item}}</li>
             </ul>
-            <div slot="infinite-scroll-loading" class="text-center">loading...</div>
+            <div slot="infinite-scroll-loading">loading...</div>
         </vue-data-loading>
     </div>
 </template>
@@ -40,24 +41,24 @@
                         temp.push(i)
                     }
                     this.list = this.list.concat(temp)
-                    this.page++
 
                     this.loading = false
                 }, 1000)
             },
 
             pullUp() {
-                console.log('pull-up...')
                 this.fetchData()
+                this.page++
             },
             pullDown() {
-                console.log('pull-down...')
                 this.list = []
+                this.page = 1
+                this.completed = false
                 this.fetchData()
             },
             infiniteScroll() {
-                console.log('infinite-scroll...')
                 this.fetchData()
+                this.page++
             },
         },
         created() {
