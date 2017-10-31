@@ -71,6 +71,10 @@
             container: {
                 type: String,
             },
+            initScroll: {
+                type: Boolean,
+                default: false,
+            },
         },
         data() {
             return {
@@ -194,6 +198,9 @@
             init() {
                 this.bindEvents()
                 this.updateView()
+                if (this.initScroll) {
+                    this.handleScroll()
+                }
             },
         },
         mounted() {

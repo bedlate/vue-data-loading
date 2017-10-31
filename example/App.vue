@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <vue-data-loading :loading="loading" :completed="completed" :listens="['infinite-scroll', 'pull-down', 'pull-up']" @infinite-scroll="infiniteScroll" @pull-up="pullUp" @pull-down="pullDown">
+    <div class="app">
+        <h1>vue-data-loading</h1>
+        <vue-data-loading :loading="loading" :completed="completed" :listens="['infinite-scroll', 'pull-down']" :init-scroll="true" @infinite-scroll="infiniteScroll" @pull-down="pullDown">
             <div slot="pull-down-ready">ready to refresh</div>
             <ul>
-                <li v-for="(item, index) in list" :key="index">Lorem ipsum dolor sit item: {{item}}</li>
+                <li v-for="(item, index) in list" :key="index">测试专用填充数据: {{item}}</li>
             </ul>
             <div slot="infinite-scroll-loading">loading...</div>
         </vue-data-loading>
@@ -62,16 +63,21 @@
             },
         },
         created() {
-            this.fetchData()
+//            this.fetchData()
         }
     }
 </script>
 
-<style>
-    ul {
-        margin: 0;
-    }
-    .text-center {
+<style lang="scss">
+    .app {
+        max-width: 400px;
+        margin: 0 auto;
         text-align: center;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
     }
 </style>

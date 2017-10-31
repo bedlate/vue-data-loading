@@ -1,10 +1,10 @@
 # vue-data-loading
 
+[中文文档](https://github.com/bedlate/vue-data-loading/blob/master/README_CN.md)
+
 > Another component for infinite scroll and pull down/up to load data.
 
-Here is a demo of [HackNews](http://hacknews.xyz)
-
-## Screenshot
+Here is a demo: [HackNews](http://hacknews.xyz)
 
 ![vue-data-loading](https://github.com/bedlate/vue-data-loading/raw/master/screenshot.gif)
 
@@ -18,6 +18,12 @@ Here is a demo of [HackNews](http://hacknews.xyz)
 Import first:
 
     import VueDataLoading from 'vue-data-loading'
+    
+Register as a component:
+
+    components: {
+        VueDataLoading
+    },
 
 The only you need to do is wrapping your data with `vue-data-loading` tag.
 
@@ -33,9 +39,9 @@ However, you can pass some `props` or `events` to the component.
         <!--your data here-->
     </vue-data-loading>
 
-And sometimes, you may want to change the default `slot`:
+Sometimes, you may want to change the default style or text(html), that is easy, just edit the `slot`:
 
-Here is a example for `infinite-scroll` slot:
+Here is a example for `infinite-scroll-loading` slot:
 
 *default*:
 
@@ -43,7 +49,10 @@ Here is a example for `infinite-scroll` slot:
 
 *edit*:
 
-    <div slot="infinite-scroll-loading" class="some-style-you-like">loading...</div>
+    <div slot="infinite-scroll-loading" class="some-style-you-like">
+        <img src="/path/to/your-icon.png">
+        <span>loading...</span>
+    </div>
 
 
 Here is a [full example](https://github.com/bedlate/vue-data-loading/blob/master/example/App.vue)
@@ -58,7 +67,9 @@ Type: boolean
 
 Default: false
 
-The component will not trigger event while `loading` is `true`, so you can use it to fetch data.
+The component will not trigger any events while `loading` is `true`.
+
+It should be `true` when data are downloading, and `false` when finished.
 
 #### completed
 
@@ -68,6 +79,18 @@ Default: false
 
 The component will not trigger `infinite-scroll` if `true`.
 
+It should be `true` when all data have be loaded.
+
+#### init-scroll
+
+Type: boolean
+
+Default: false
+
+The component will trigger `infinite-scroll` once if `true` when it has be mounted.
+
+It uses to bootstrap when page first-time loads.
+
 #### distance
 
 Type: number
@@ -76,7 +99,7 @@ Default: 60
 
 Unit: px
 
-Only available for `touch*` event, when pull distance is not less than it, `pull-down` or `pull-up` will be emitted.
+Only available for `touch*` event, when pull distance is not less than it, `pull-down` or `pull-up` will be triggered.
 
 #### offset
 
@@ -86,7 +109,7 @@ Default: 0
 
 Unit: px
 
-Sometimes you want to change bottom offset.
+Sometimes you want to change bottom offset to trigger `infinite-scroll` in advance.
 
 #### listens
 
@@ -94,7 +117,7 @@ Type: array
 
 Default: ['infinite-scroll', 'pull-down', 'pull-up']
 
-The component will not trigger `infinite-scroll` if it not in the list.
+The component will not trigger the event if it not in the list.
 
 #### container
 
@@ -159,12 +182,6 @@ npm install
 
 # serve example with hot reload at localhost:8080
 npm run dev
-
-# build for example production with minification
-npm run build
-
-# build for example production and view the bundle analyzer report
-npm run build --report
 
 # build vue-data-loading component
 npm run dist
