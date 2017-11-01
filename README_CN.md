@@ -41,7 +41,7 @@
 
 有时候你也能想修改默认的样式或文字，非常简单，只要编辑对应的 `slot` 即可:
 
-Here is a example for `infinite-scroll-loading` slot:
+举个 `infinite-scroll-loading` 的例子:
 
 *默认*:
 
@@ -125,6 +125,15 @@ Here is a example for `infinite-scroll-loading` slot:
 
 所有事件 `events` 默认绑定在 `window` ，如果你想自定义外层容器，需要指定其 `ref` .
 
+#### watch-scroll
+
+类型: boolean
+
+默认: false
+
+如果为 `true` 组件将会触发 `scrolling` 事件.
+
+用来获取 `container` `scrollTop` 和 `scrollLeft` 属性.
 
 ### 事件
 
@@ -139,6 +148,12 @@ Here is a example for `infinite-scroll-loading` slot:
 #### pull-up
 
 当容器已经上拉超过 `distance` 属性时触发
+
+#### scrolling
+
+当容器滚动时触发.
+
+有个回调参数，返回当前容器的 (scrollTop, scrollLeft).
 
 
 ### Slots

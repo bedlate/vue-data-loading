@@ -676,6 +676,10 @@ module.exports = function normalizeComponent (
         initScroll: {
             type: Boolean,
             default: false
+        },
+        watchScroll: {
+            type: Boolean,
+            default: false
         }
     },
     data: function data() {
@@ -695,7 +699,8 @@ module.exports = function normalizeComponent (
 
             PULL_UP: 'pull-up',
             PULL_DOWN: 'pull-down',
-            INFINITE_SCROLL: 'infinite-scroll'
+            INFINITE_SCROLL: 'infinite-scroll',
+            ORIGIN_SCROLL: 'scrolling'
         };
     },
 
@@ -733,6 +738,13 @@ module.exports = function normalizeComponent (
         },
         handleScroll: function handleScroll() {
             this.updateView();
+            if (this.watchScroll) {
+                var container = window === this._container ? document.documentElement : this._container;
+                var scrollTop = container.scrollTop,
+                    scrollLeft = container.scrollLeft;
+
+                this.$emit(this.ORIGIN_SCROLL, { scrollTop: scrollTop, scrollLeft: scrollLeft });
+            }
             if (this.loading || this.completed) {
                 return;
             }

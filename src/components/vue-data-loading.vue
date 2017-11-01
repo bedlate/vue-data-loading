@@ -75,6 +75,10 @@
                 type: Boolean,
                 default: false,
             },
+            watchScroll: {
+                type: Boolean,
+                default: false,
+            },
         },
         data() {
             return {
@@ -94,6 +98,7 @@
                 PULL_UP: 'pull-up',
                 PULL_DOWN: 'pull-down',
                 INFINITE_SCROLL: 'infinite-scroll',
+                ORIGIN_SCROLL: 'scrolling',
             }
         },
         computed: {
@@ -125,6 +130,11 @@
             },
             handleScroll() {
                 this.updateView()
+                if (this.watchScroll) {
+                    let container = window === this._container ? document.documentElement : this._container
+                    let {scrollTop, scrollLeft} = container
+                    this.$emit(this.ORIGIN_SCROLL, {scrollTop, scrollLeft})
+                }
                 if (this.loading || this.completed) {
                     return
                 }
