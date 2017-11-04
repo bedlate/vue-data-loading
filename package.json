@@ -1,6 +1,6 @@
 {
   "name": "vue-data-loading",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Another component for infinite scroll and pull down/up to load data.",
   "homepage": "http://hacknews.xyz",
   "main": "dist/index.js",

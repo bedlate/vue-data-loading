@@ -127,16 +127,6 @@ Required: false
 
 All `events` bind on `window` if it is not set, or you need to specify a container `ref` to it.
 
-#### watch-scroll
-
-Type: boolean
-
-Default: false
-
-The component will trigger `scrolling` once if `true`.
-
-It uses to get `scrollTop` and `scrollLeft` of `container`.
-
 
 ### Events
 
@@ -152,11 +142,6 @@ Emit when container has already pulled down
 
 Emit when container has already pulled up
 
-#### scrolling
-
-Emit when container are scrolling.
-
-There is a callback param ref to (scrollTop, scrollLeft).
 
 ### Slots
 
