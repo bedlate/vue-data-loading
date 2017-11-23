@@ -7,6 +7,7 @@
                 <li v-for="(item, index) in list" :key="index">测试专用填充数据: {{item}}</li>
             </ul>
             <div slot="infinite-scroll-loading">loading...</div>
+            <div slot="completed">completed!</div>
         </vue-data-loading>
     </div>
 </template>
