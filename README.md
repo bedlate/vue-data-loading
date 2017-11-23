@@ -173,6 +173,10 @@ Display when distance of `pull-up` is not less then `distance` prop
 
 Display when container has already `pull-up` and data is `loading`
 
+#### completed
+
+Display when data is `completed` and not `loading`
+
 
 ## Develop
 

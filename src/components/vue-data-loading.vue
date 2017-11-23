@@ -36,7 +36,7 @@
 
         <div class="loading-footer" :style="{height: distance + 'px'}" v-show="!loading && completed">
             <div class="footer-text">
-                <slot :name="completed">加载完毕</slot>
+                <slot name="completed">加载完毕</slot>
             </div>
         </div>
 
